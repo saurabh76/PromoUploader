@@ -6,7 +6,7 @@ trigger:
       - prod
 
 pool:
-  vmImage: ubuntu-latest
+  name: wsl-agent-pool
 
 variables:
   TF_VERSION: '1.5.7'
@@ -22,7 +22,6 @@ steps:
       sudo mv terraform /usr/local/bin/
   displayName: 'Install Terraform'
 
-
 - checkout: self
 
 - task: AzureCLI@2
@@ -34,4 +33,4 @@ steps:
       cd terraform
       terraform init
       terraform apply -var-file="main.tfvars" -auto-approve
-    displayName: 'Terraform Init & Apply'
+  displayName: 'Terraform Init & Apply'
