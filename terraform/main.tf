@@ -21,7 +21,6 @@ resource "azurerm_key_vault" "kv" {
   resource_group_name         = azurerm_resource_group.rg.name
   tenant_id                   = var.tenant_id
   sku_name                    = "standard"
-  soft_delete_enabled         = true
   purge_protection_enabled    = false
 }
 
